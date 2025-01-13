@@ -70,3 +70,4 @@ This repository contains:
    ```bash
    git clone https://github.com/dishankoza/echo-server.git
    cd echo-server
+   go run main.go
