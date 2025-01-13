@@ -24,14 +24,6 @@ func fetchCommand(c netpoll.Connection) (string, error) {
 	return string(buf[:n]), nil
 }
 
-// respondWNetpoll writes the command back to the client
-func respondWNetpoll(cmd string, c netpoll.Connection) error {
-	if _, err := c.Write([]byte(cmd)); err != nil {
-		return err
-	}
-	return nil
-}
-
 // handleConnection handles each client connection
 func handleConnection(c netpoll.Connection) {
 	defer c.Close()
@@ -54,7 +46,7 @@ func handleConnection(c netpoll.Connection) {
 		log.Println("Received command from "+c.RemoteAddr().String()+":", cmd)
 
 		// Respond with the same command
-		if err = respondWNetpoll(cmd, c); err != nil {
+		if err = respond(cmd, c); err != nil {
 			log.Println("err write:", err)
 			break
 		}
