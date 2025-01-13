@@ -35,14 +35,14 @@ func (c *ConnWrapper) readCommand() (string, error) {
 	return string(buf), nil
 }
 
-func RunASyncServerWRoutine() {
+func RunAsyncServerWRoutine() {
 	log.Println("Starting a synchronous TCP server on", config.Host, config.Port)
 
 	var conClient int
 	var mu sync.Mutex // Mutex to protect conClient
 	var md sync.Mutex
 
-	lsnr, err := net.Listen("tcp", config.Host+":"+strconv.Itoa((config.Port)))
+	lsnr, err := net.Listen("tcp", config.Host+":"+strconv.Itoa((config.Port+1)))
 
 	if err != nil {
 		panic(err)
