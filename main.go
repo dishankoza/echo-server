@@ -17,5 +17,5 @@ func setupFlags() {
 func main() {
 	setupFlags()
 	log.Println("Echo Server up and listening")
-	server.RunSyncServer()
+	server.RunASyncServerWRoutine()
 }

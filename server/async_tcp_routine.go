@@ -43,7 +43,7 @@ func respond(cmd string, c net.Conn) error {
 	return nil
 }
 
-func RunSyncServer() {
+func RunASyncServerWRoutine() {
 	log.Println("Starting a synchronous TCP server on", config.Host, config.Port)
 
 	var conClient int
