@@ -35,14 +35,6 @@ func (c *ConnWrapper) readCommand() (string, error) {
 	return string(buf), nil
 }
 
-func respond(cmd string, c net.Conn) error {
-	if _, err := c.Write([]byte(cmd)); err != nil {
-		log.Println("Error reading command:", err)
-		return err
-	}
-	return nil
-}
-
 func RunASyncServerWRoutine() {
 	log.Println("Starting a synchronous TCP server on", config.Host, config.Port)
 
