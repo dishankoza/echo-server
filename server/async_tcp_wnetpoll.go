@@ -67,8 +67,8 @@ func handleConnection(c netpoll.Connection) {
 	mu.Unlock()
 }
 
-// RunASyncServer starts the asynchronous server
-func RunASyncServer() {
+// RunASyncServerWNetpoll starts the asynchronous server
+func RunASyncServerWNetpoll() {
 	log.Println("Starting asynchronous TCP server on port 8080")
 
 	// Create the listener

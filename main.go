@@ -18,5 +18,5 @@ func main() {
 	setupFlags()
 	log.Println("Echo Server up and listening")
 	go server.RunSyncServer()
-	server.RunASyncServer()
+	server.RunASyncServerWNetpoll()
 }
